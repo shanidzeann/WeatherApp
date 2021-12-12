@@ -16,6 +16,7 @@
 		63E28AF91B99C36100FBF6E0 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E28AF51B99C36100FBF6E0 /* WeatherViewController.swift */; };
 		63E28AFF1B99C3B300FBF6E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */; };
 		899A5E492765FDB800220580 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899A5E482765FDB800220580 /* Constants.swift */; };
+		899A5E4B276666F500220580 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899A5E4A276666F500220580 /* UIImageView+DownloadImage.swift */; };
 		89A085AF27656B4400C51B6D /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A085AE27656B4400C51B6D /* DataManager.swift */; };
 		89A085B12765705000C51B6D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A085B02765705000C51B6D /* NetworkManager.swift */; };
 		AD05C7BE20EBD80E00915CD8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AD05C7BD20EBD80D00915CD8 /* README.md */; };
@@ -35,6 +36,7 @@
 		63E28AF51B99C36100FBF6E0 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		899A5E482765FDB800220580 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		899A5E4A276666F500220580 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		89A085AE27656B4400C51B6D /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		89A085B02765705000C51B6D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		AD05C7BD20EBD80D00915CD8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				63E28AF31B99C36100FBF6E0 /* Images.xcassets */,
 				63E28AFE1B99C3B300FBF6E0 /* LaunchScreen.xib */,
 				63E28ACE1B99C32400FBF6E0 /* Supporting Files */,
+				899A5E4A276666F500220580 /* UIImageView+DownloadImage.swift */,
 			);
 			path = Clima;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A085B12765705000C51B6D /* NetworkManager.swift in Sources */,
+				899A5E4B276666F500220580 /* UIImageView+DownloadImage.swift in Sources */,
 				63E28AF11B99C35700FBF6E0 /* WeatherDataModel.swift in Sources */,
 				89A085AF27656B4400C51B6D /* DataManager.swift in Sources */,
 				63E28AF91B99C36100FBF6E0 /* WeatherViewController.swift in Sources */,

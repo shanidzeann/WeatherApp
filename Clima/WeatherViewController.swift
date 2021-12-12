@@ -13,6 +13,8 @@ import SwiftyJSON
 
 class WeatherViewController: UIViewController, ChangeCityDelegate {
     
+    // MARK: - Properties
+    
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = myID
     
@@ -26,15 +28,25 @@ class WeatherViewController: UIViewController, ChangeCityDelegate {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     
+    
+    // MARK: - VC Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
     }
+    
+    // MARK: - Change City Delegate methods
+    
+    func userEnteredANewCityName(city: String) {
+        let params : [String : String] = ["q" : city, "appid" : APP_ID]
+        getWeatherData(params: params)
+    }
+    
+    // MARK: - Helper Methods
     
     func getWeatherData(params: [String : String]) {
         networkManager.getWeatherData(url: WEATHER_URL, parameters: params) { succeded, data in
@@ -46,40 +58,31 @@ class WeatherViewController: UIViewController, ChangeCityDelegate {
         }
     }
     
-    // MARK: - UI Updates
-    
-    func update(with json: JSON) {
-        dataManager.updateWeatherData(json: json, model: self.weatherDataModel) { succeded in
-            if succeded {
-                self.cityLabel.text = self.weatherDataModel.city
-                self.weatherIcon.image = UIImage(named: self.weatherDataModel.weatherIconName)
-                self.temperatureLabel.text = "\(self.weatherDataModel.temperature)°"
-                self.bgImageView.image = UIImage(named: self.weatherDataModel.dayImage)
-            } else {
-                self.cityLabel.text = "Error"
-            }
-        }
-    }
-    
-    
-    //MARK: - Change City Delegate methods
-    
-    func userEnteredANewCityName(city: String) {
-        let params : [String : String] = ["q" : city, "appid" : APP_ID]
-        getWeatherData(params: params)
-    }
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "changeCityName" {
             let destinationVC = segue.destination as! ChangeCityViewController
             destinationVC.delegate = self
         }
     }
+    
+    // MARK: - UI Updates
+    
+    func update(with json: JSON) {
+        dataManager.updateWeatherData(json: json, model: self.weatherDataModel) { succeded in
+            if succeded {
+                self.cityLabel.text = self.weatherDataModel.city
+                self.weatherIcon.loadImage(code: self.weatherDataModel.weatherIconName)
+                self.temperatureLabel.text = "\(self.weatherDataModel.temperature)°"
+                self.bgImageView.image = UIImage(named: self.weatherDataModel.dayImage!.rawValue)
+            } else {
+                self.cityLabel.text = "Error"
+            }
+        }
+    }
 }
 
 
-//MARK: - Location Manager Delegate Methods
+    // MARK: - Location Manager Delegate Methods
 
 extension WeatherViewController: CLLocationManagerDelegate {
     

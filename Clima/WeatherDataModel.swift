@@ -10,74 +10,52 @@ import Foundation
 
 class WeatherDataModel {
     
+    enum Day: String {
+        case day = "day"
+        case night = "night"
+    }
+    
     var temperature = 0
     var condition = 0
     var city = ""
     var weatherIconName = ""
     var timezone = 0
-    var dayImage = ""
     
     var localTime: String {
-        get {
-            let format = DateFormatter()
-            format.timeZone = TimeZone(secondsFromGMT: timezone)
-            format.dateFormat = "HH"
-            let dateString = format.string(from: Date())
-            let trimmedString = dateString.replacingOccurrences(of: "^0+", with: "", options: .regularExpression)
-            return trimmedString
-        }
+        let format = DateFormatter()
+        format.timeZone = TimeZone(secondsFromGMT: timezone)
+        format.dateFormat = "HH"
+        let dateString = format.string(from: Date())
+        let trimmedString = dateString.replacingOccurrences(of: "^0+", with: "", options: .regularExpression)
+        return trimmedString
     }
     
-    func updateBackgroundImage(at hour: Int) -> String {
-        switch hour {
+    var dayImage: Day? {
+        switch Int(localTime)! {
         case 6...17:
-            return "day"
+            return .day
         case 0...5, 18...23:
-            return "night"
+            return .night
         default:
-            return "dunno"
+            return .none
         }
     }
     
-    func updateWeatherIcon(condition: Int) -> String {
-    switch (condition) {
-    
-        case 0...300:
-            return "tstorm1"
-        
-        case 301...500:
-            return "light_rain"
-        
-        case 501...600:
-            return "shower3"
-        
-        case 601...700:
-            return "snow4"
-        
-        case 701...771:
-            return "fog"
-        
-        case 772...799:
-            return "tstorm3"
-        
-        case 800:
-            return "sunny"
-        
-        case 801...804:
-            return "cloudy2"
-        
-        case 900...903, 905...1000:
-            return "tstorm3"
-        
-        case 903:
-            return "snow5"
-        
-        case 904:
-            return "sunny"
-        
+    var code: String {
+        switch (condition) {
+        case 200...232: return "11"
+        case 300...321: return "09"
+        case 500...504: return "10"
+        case 520...531: return "09"
+        case 600...622, 511: return "13"
+        case 701...781: return "50"
+        case 800: return "01"
+        case 801: return "02"
+        case 802: return "03"
+        case 803...804: return "04"
         default:
-            return "dunno"
+            return "0"
         }
-
     }
+    
 }
