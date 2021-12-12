@@ -9,7 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-
 class DataManager {
     
     func updateWeatherData(json: JSON, model: WeatherDataModel, completion: @escaping (Bool) -> Void) {
@@ -18,6 +17,11 @@ class DataManager {
             model.city = json["name"].stringValue
             model.condition = json["weather"][0]["id"].intValue
             model.weatherIconName = model.updateWeatherIcon(condition: model.condition)
+            model.timezone = json["timezone"].intValue
+            let hour = Int(model.localTime)
+            print(hour)
+            model.dayImage = model.updateBackgroundImage(at: hour!)
+            print(model.dayImage)
             completion(true)
         }
         else {

@@ -21,6 +21,7 @@ class WeatherViewController: UIViewController, ChangeCityDelegate {
     let dataManager = DataManager()
     let networkManager = NetworkManager()
     
+    @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -53,6 +54,7 @@ class WeatherViewController: UIViewController, ChangeCityDelegate {
                 self.cityLabel.text = self.weatherDataModel.city
                 self.weatherIcon.image = UIImage(named: self.weatherDataModel.weatherIconName)
                 self.temperatureLabel.text = "\(self.weatherDataModel.temperature)°"
+                self.bgImageView.image = UIImage(named: self.weatherDataModel.dayImage)
             } else {
                 self.cityLabel.text = "Error"
             }
