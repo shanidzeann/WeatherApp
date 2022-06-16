@@ -10,8 +10,8 @@ Clima:
 - Parse JSON (SwiftyJSON)
 - Get user location (CoreLocation)
 
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/Weather1.png)
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/Weather2.png)
+![Image alt](https://github.com/shanidzeann/Screenshots/blob/master/Weather1.png)
+![Image alt](https://github.com/shanidzeann/Screenshots/blob/master/Weather2.png)
 
 What I've done on my own:
 - Extract code from ViewControllers and place it into Network and Data managers
@@ -20,5 +20,5 @@ What I've done on my own:
 - Add functionality for updating weather icons (URLSession) according to https://openweathermap.org/weather-conditions
 (these icons don't look really nice, but I suppose it's ok for testing)
 
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/Weather3.png)
-![Image alt](https://github.com/shanidzeann/Screenshots/blob/main/Weather4.png)
+![Image alt](https://github.com/shanidzeann/Screenshots/blob/master/Weather3.png)
+![Image alt](https://github.com/shanidzeann/Screenshots/blob/master/Weather4.png)
